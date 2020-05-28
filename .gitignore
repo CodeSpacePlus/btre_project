@@ -142,3 +142,4 @@ cython_debug/
 # vscode
 .vscode
 DB_details.txt
+.idea
