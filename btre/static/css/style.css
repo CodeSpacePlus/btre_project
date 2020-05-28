@@ -20,7 +20,11 @@ img {
 }
 
 #showcase {
-  background-image: url(../img/showcase.jpg) no-repeat top center fixed/cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-image: url(../img/showcase.jpg);
+  background-attachment: fixed;
   position: relative;
   min-height: 650px;
   color: #fff;
@@ -42,7 +46,11 @@ img {
 }
 
 #services {
-  background-image: url(../img/building.jpg) no-repeat top center fixed/cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-image: url(../img/building.jpg);
+  background-attachment: fixed;
   min-height: 300px;
   position: relative;
   overflow: hidden;
@@ -58,7 +66,11 @@ img {
 }
 
 #showcase-inner {
-  background: url(../img/building.jpg) no-repeat top center fixed/cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-image: url(../img/building.jpg);
+  background-attachment: fixed;
   position: relative;
   overflow: hidden;
   min-height: 200px;
