@@ -4,9 +4,9 @@ from .models import Listing
 
 
 def index(request):
-    listings = Listing.objects.all()
+    listings = Listing.objects.order_by('-listing_date').filter(is_published=True)
 
-    paginator = Paginator(listings, 3)
+    paginator = Paginator(listings, 6)
     page_number = request.GET.get('page')
     paged_listings = paginator.get_page(page_number)
 
