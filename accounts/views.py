@@ -4,10 +4,26 @@ from django.contrib.auth.models import User
 
 
 def login(request):
-    return render(request, 'accounts/login.html')
+    if request.method != 'POST':
+        return render(request, 'accounts/login.html')
+
+    username = request.POST['username']
+    password = request.POST['password']
+
+    user = auth.authenticate(username=username, password=password)
+
+    if user is None:
+        messages.error(request, 'Invalid credentials.')
+        return redirect('login')
+
+    auth.login(request, user)
+    # messages.success(request, 'You are now logged in.')
+    return redirect('dashboard')
 
 
 def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
     return redirect('index')
 
 
