@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b91sa#j-xxm53ey=3_*3y(i)(c9zg7%@9@nj%88!a1w_gul+gc'
+SECRET_KEY = 'b91sa#j-xxm53ey=3_*3y(i)(c9zg7%@9@nj%88!a1w_gul+gc'  # Create a new one when in production
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'listings.apps.ListingsConfig',
     'realtors.apps.RealtorsConfig',
     'accounts.apps.AccountsConfig',
+    'contacts.apps.ContactsConfig',
     'django.contrib.humanize',
 ]
 
@@ -135,3 +136,10 @@ MEDIA_URL = '/media/'
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+# Email config
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USER = '[Gamil user]'  # User environment variable
+EMAIL_PASSWORD = '[Gmail password]'  # User environment variable
+EMAIL_USER_TLS = True
