@@ -69,7 +69,7 @@ def register(request):
 
 
 def dashboard(request):
-    inquiries = Contact.objects.filter(user_id=request.user.id)
+    inquiries = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
     context = {
         'inquiries': inquiries,
     }
