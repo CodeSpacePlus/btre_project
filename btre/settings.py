@@ -13,6 +13,19 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 from django.contrib.messages import constants as messages
 
+try:
+    """
+    IMPORTS THE FOLLOWING VARIABLES:
+    - SECRET_KEY
+    - DATABASES
+    - ALLOWED_HOST
+    - DEBUG
+    - EMAIL_*
+    """
+    from .local_settings import *
+except ImportError:
+    pass
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +33,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'b91sa#j-xxm53ey=3_*3y(i)(c9zg7%@9@nj%88!a1w_gul+gc'  # Create a new one when in production
+SECRET_KEY = SECRET_KEY   # Create a new one when in production
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ALLOWED_HOST
 
 # Application definition
 
@@ -77,16 +90,7 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'btredb',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+DATABASES = DEBUG
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -138,8 +142,8 @@ MESSAGE_TAGS = {
 }
 
 # Email config
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USER = '[Gamil user]'  # User environment variable
-EMAIL_PASSWORD = '[Gmail password]'  # User environment variable
-EMAIL_USER_TLS = True
+EMAIL_HOST = EMAIL_HOST
+EMAIL_PORT = EMAIL_PORT
+EMAIL_USER = EMAIL_USER
+EMAIL_PASSWORD = EMAIL_PASSWORD
+EMAIL_USER_TLS = EMAIL_USER_TLS
